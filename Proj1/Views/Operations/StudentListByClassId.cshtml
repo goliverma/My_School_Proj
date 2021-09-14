@@ -1,0 +1,84 @@
+﻿@model List<StudentVM>
+
+@{
+    ViewData["Title"] = "Student List";
+    ViewData["pageTitle"] = "Student list by class";
+}
+@if (Context.Session.GetString("userLoginName") != null)
+{
+    <div class="d-md-flex justify-content-center">
+        <div class="col-md-8">
+            <table class="" id="studentList">
+                <thead>
+                    <tr>
+                        <th>
+                            Student Id
+                        </th>
+                        <th>
+                            Student Name
+                        </th>
+                        <th>
+                            Student Roll No.
+                        </th>
+                        <th>
+                            Student Address
+                        </th>
+                        <th>
+                            
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @*@await Html.PartialAsync("_StudentList", Model)*@
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <a class="btn btn-danger" asp-controller="Operations" asp-action="SchoolClass" asp-route-a="student">Back to previous menu</a>
+    @section Scripts {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                let uri = window.location.href;
+                let param = uri.substring(uri.lastIndexOf('/') + 1);
+                loadList(param);
+            });
+            function loadList(param) {
+                $.ajax({
+                    url: '/Operations/getStudentListByClassId',
+                    type: 'get',
+                    data: { id: param },
+                    success: function (Data) {
+                        debugger;
+                        onSuccess(Data);
+                    },
+                    error: function () {
+                        alert('Data Error');
+                    }
+                });
+            }
+            function onSuccess(Data) {
+                $('#studentList').DataTable({
+                    destroy: true,
+                    data: Data,
+                    columns: [
+                        { "data": "studentId" },
+                        { "data": "studentName" },
+                        { "data": "studentRollNo" },
+                        { "data": "studentAddress" },
+                        {
+                            "data": "studentId",
+                            "render": function (studentId) {
+                                return '<a class="btn btn-outline-primary" href="/Operations/StudentById?sid=' + studentId + '">View</a>';
+                            }
+                        }
+                    ]
+                });
+            }
+        </script>
+    }
+}
+else
+{
+    <a class="btn btn-primary" asp-action="Login" asp-controller="User">Login Please !</a>
+}

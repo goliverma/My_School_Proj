@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Error";
+    ViewData["pageTitle"] = "Error Page";
+    string ex = ViewData["HandleException"] as string;
+    string InnerException = ViewData["InnerException"] as string;
+}
+
+<h1 class="text-danger">@ex</h1>
+
+<div class="text-danger">@InnerException</div>
+
+<a class="btn btn-outline-danger" asp-controller="School" asp-action="Index">Back To School List</a>

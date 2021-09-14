@@ -1,0 +1,10 @@
+﻿@{ 
+    ViewData["Title"] = "Access Denied";
+    ViewData["pageTitle"] = "Access Denied";
+}
+
+<h1 class="text-danger">Access Denied ! </h1>
+<h3 class="text-danger">@ViewData["returnUserName"] please Login as a Admin privileges</h3>
+
+<hr />
+<a class="btn btn-outline-danger" asp-action="Login" asp-route-returnUrl="@ViewData["returnUrl"]">Back To Login</a>

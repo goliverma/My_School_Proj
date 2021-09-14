@@ -1,0 +1,27 @@
+﻿<!doctype html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body class="container">
+    <header class="modal-header col-md-12">
+        <div class="jumbotron">
+            <h1 class="display-3 text-center">@ViewData["pageTitle"]</h1>
+            <hr class="my-2">
+        </div>
+    </header>
+    <main role="main">
+        @RenderBody()
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "Login";
+    ViewData["pageTitle"] = "Login Page";
+    var uri = ViewData["returnUrl"] as string;
+    var name= ViewData["returnUserName"] as string;
+}
+<div class="sidenav">
+    <div class="login-main-text">
+        <h2>Application<br> Login Page</h2>
+        <p>Login from here to access.</p>
+    </div>
+</div>
+<div class="main">
+    <div class="col-md-6 col-sm-12">
+        <div class="login-form">
+            <form asp-controller="User" asp-action="Login" asp-route-returnUrl="@System.Net.WebUtility.UrlDecode(uri)" method="post">
+                <div class="form-group">
+                    <label>User Name</label>
+                    <input type="text"asp-for="UserName" class="form-control" placeholder="User Name">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" asp-for="UserPass" class="form-control" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-black">Login</button>
+                @*<button type="submit" class="btn btn-secondary">Register</button>*@
+            </form>
+            <p class="text-danger">@ViewBag.error</p>
+        </div>
+    </div>
+</div>

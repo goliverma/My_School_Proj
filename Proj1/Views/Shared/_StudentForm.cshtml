@@ -1,0 +1,67 @@
+﻿@model StudentVM
+
+<form asp-controller="Student" asp-action="PostStudent" method="post">
+    <input type="hidden" asp-for="StudentId" id="StudentId" />
+    <div class="form-group row p-2">
+        <label class=" col-md-2 text-center col-form-label">Student Name</label>
+        <div class="col-md-5">
+            <input class=" form-control" id="StudentName" onclick="changeCss('StudentName')"
+                   type="text" asp-for="StudentName" placeholder="Student Name" />
+        </div>
+    </div>
+    <div class="form-group row p-2">
+        <label class="col-md-2 text-center form-label">Roll Number</label>
+        <div class="col-md-5">
+            <input class=" form-control" type="number" onclick="changeCss('StudentRollNo')"
+                   asp-for="StudentRollNo" id="StudentRollNo" placeholder="Roll Number" />
+        </div>
+    </div>
+    <div class="form-group row p-2">
+        <label class="col-md-2 text-center form-label">Class</label>
+        <div class="col-md-5">
+            <select asp-for="ClassId" class="form-control" onclick="changeCss('ClassId')"
+                    asp-items="@(new SelectList(ViewBag.classes,"ClassId","ClassName"))">
+            </select>
+        </div>
+    </div>
+    <div class="form-group row p-2">
+        <label class="col-md-2 text-center form-label">Country</label>
+        <div class="col-md-5">
+            <select asp-for="Cid" id="cid" class="form-control" onclick="changeCss('cid')" onchange="BindState()">
+            </select>
+        </div>
+    </div>
+    <div class="form-group row p-2">
+        <label class="col-md-2 text-center form-label">State</label>
+        <div class="col-md-5">
+            <select asp-for="Sid" id="sid" class="form-control" onclick="changeCss('sid')"  onchange="BindCity()">
+            </select>
+        </div>
+    </div>
+    <div class="form-group row p-2">
+        <label class="col-md-2 text-center form-label">City</label>
+        <div class="col-md-5">
+            <select asp-for="CityId" id="cityid" class="form-control" onclick="changeCss('cityid')" >
+            </select>
+        </div>
+    </div>
+    <div class="form-group row p-2">
+        <label class="col-md-2 text-center form-label">Address</label>
+        <div class="col-md-5">
+            <input class=" form-control" type="text" onclick="changeCss('StudentAddress')"
+                   asp-for="StudentAddress" id="StudentAddress" placeholder="Address" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="text-md-end p-1 col-md-5 m-1">
+            @if (ViewBag.pageid == 0)
+            {
+                <button type="submit" class="btn btn-outline-success" onclick="return Validation()">Submit</button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-outline-secondary" onclick="return Validation()">Update</button>
+            }
+        </div>
+    </div>
+</form>

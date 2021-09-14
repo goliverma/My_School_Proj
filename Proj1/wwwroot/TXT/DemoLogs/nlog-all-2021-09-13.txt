@@ -1,0 +1,8 @@
+2021-09-13 13:12:04.3675|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-13 13:12:04.4020|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-13 13:12:04.4069|INFO|Microsoft.Hosting.Lifetime|Content root path: D:\Proj1\Proj1
+2021-09-13 13:12:11.4670|ERROR|Proj1.Models.Filter.CustomExceptionFilter|Proj1.Controllers.OperationsController.StudentListBySchool (Proj1) 
+ Exception of type 'System.Exception' was thrown. 
+ 
+2021-09-13 13:12:28.1554|WARN|Proj1.Controllers.ErrorController|Sorry, The resource you request could not found 
+ foo/bar/

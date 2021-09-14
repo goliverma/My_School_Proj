@@ -1,0 +1,140 @@
+﻿@model List<StudentVM>
+@{
+    ViewData["Title"] = "Student Details";
+    ViewData["pageTitle"] = "Student Details";
+}
+
+@if (Context.Session.GetString("userLoginName") != null)
+{
+    <div class="d-md-flex justify-content-center">
+        <div class="col-md-8">
+            <table class="" id="studentList">
+                <thead>
+                    <tr>
+                        <th>
+                            Student Id
+                        </th>
+                        <th>
+                            Student Name
+                        </th>
+                        <th>
+                            Roll No
+                        </th>
+                        <th>
+                            Class
+                        </th>
+                        <th>
+                            Address
+                        </th>
+                        <td>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @*@foreach (var st in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @st.StudentId
+                                </td>
+                                <td>
+                                    @st.StudentName
+                                </td>
+                                <td>
+                                    @st.StudentRollNo
+                                </td>
+                                <td>
+                                    @st.ClassName
+                                </td>
+                                <td>
+                                    @st.StudentAddress
+                                </td>
+                                <td>
+                                    <a class="btn btn-outline-info" asp-controller="Student" asp-action="Edit" asp-route-Id="@st.StudentId">Edit</a>
+                                </td>
+                            </tr>
+                        }*@
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a asp-controller="Student" asp-action="PostStudent" class="btn btn-light">back to Add Student</a>
+    @section Scripts{
+        <script src="~/js/DropDown.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                loadList();
+            });
+            function loadList() {
+                $.ajax({
+                    url: 'getStudents',
+                    type: 'get',
+                    data: {},
+                    success: function (Data) {
+                        onSuccess(Data);
+                    },
+                    error: function () {
+                        alert('Data Error');
+                    }
+                });
+            }
+            function onSuccess(Data) {
+                $('#studentList').DataTable({
+                    destroy: true,
+                    data: Data,
+                    columns: [
+                        { "data": "studentId" },
+                        { "data": "studentName" },
+                        { "data": "studentRollNo" },
+                        { "data": "className" },
+                        { "data": "studentAddress" },
+                        {
+                            "data": "studentId",
+                            "render": function (studentId) {
+                                return `<a class="btn btn-outline-info" href="/Student/Edit/` + studentId +`">Edit</a>
+                                       &nbsp<a class="btn btn-outline-danger" onclick="Delete(`+ studentId +`)">Delete</a>`;
+                            }
+                        }
+                    ],
+                    createdRow: function (Row, data) {
+                        $(Row).attr('onclick', 'myMouseFunction(' + data.studentId + ')');
+                    }
+                });
+            }
+            function myMouseFunction(sid) {
+                $.ajax({
+                    url: 'ShowStudentById',
+                    type: 'get',
+                    data: { id: sid },
+                    success: function (Data) {
+                        debugger;
+                        $('#exampleModalCenter .modal-body').html(Data);
+                        $('#exampleModalCenter').modal('show');
+                    },
+                    error: function () {
+                        alert('some thing went wrong');
+                    }
+                });
+            }
+            function Delete(sid) {
+                if (confirm('You Want to Delete this "' + sid + '"')) {
+                    $.ajax({
+                        url: 'DeleteStudent',
+                        type: 'post',
+                        data: { id: sid },
+                        success: function () {
+                            loadList();
+                        },
+                        error: function () {
+                            alert('some thing went wrong!!!');
+                        }
+                    });
+                }
+            }
+        </script>
+    }
+}
+else
+{
+    <a class="btn btn-primary" asp-action="Login" asp-controller="User">Login Please !</a>
+}

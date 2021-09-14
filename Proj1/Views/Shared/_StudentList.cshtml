@@ -1,0 +1,108 @@
+﻿@model List<StudentVM>
+
+
+@foreach (var d in Model)
+{
+    @if (d.SchoolName == null && d.Percentage == 0)
+    {
+        <tr>
+            <td>
+                @d.StudentId
+            </td>
+            <td>
+                @d.StudentName
+            </td>
+            <td>
+                @d.StudentRollNo
+            </td>
+            <td>
+                @d.StudentAddress
+            </td>
+            <td>
+                <a class="btn btn-outline-info" asp-action="StudentById" asp-controller="Operations"
+                   asp-route-sid="@d.StudentId">
+                    View
+                </a>
+            </td>
+        </tr>
+    }
+    else
+   if (d.SchoolName != null && d.Percentage == 0)
+    {
+        <tr>
+            <td>
+                @d.StudentId
+            </td>
+            <td>
+                @d.StudentName
+            </td>
+            <td>
+                @d.StudentRollNo
+            </td>
+            <td>
+                @d.ClassName
+            </td>
+            <td>
+                @d.SchoolName
+            </td>
+            <td>
+                @d.StudentAddress
+            </td>
+        </tr>
+    }
+    else
+   if (d.Percentage != 0 && d.ClassName != null)
+    {
+        <tr>
+            <td>
+                @d.StudentId
+            </td>
+            <td>
+                @d.StudentName
+            </td>
+            <td>
+                @d.StudentRollNo
+            </td>
+            <td>
+                @d.ClassName
+            </td>
+            <td>
+                @d.StudentAddress
+            </td>
+            <td>
+                @d.Percentage
+            </td>
+            <td>
+                <a class="btn btn-outline-info" asp-action="StudentById" asp-controller="Operations" asp-route-sid="@d.StudentId">
+                    View
+                </a>
+            </td>
+        </tr>
+    }
+    else
+       if (d.Percentage != 0 && d.ClassName == null)
+    {
+        <tr>
+            <td>
+                @d.StudentId
+            </td>
+            <td>
+                @d.StudentName
+            </td>
+            <td>
+                @d.StudentRollNo
+            </td>
+            <td>
+                @d.StudentAddress
+            </td>
+            <td>
+                @d.Percentage
+            </td>
+            <td>
+                <a class="btn btn-outline-info" asp-action="StudentById" asp-controller="Operations" asp-route-sid="@d.StudentId">
+                    View
+                </a>
+            </td>
+        </tr>
+    }
+}

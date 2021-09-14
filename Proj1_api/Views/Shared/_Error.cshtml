@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Error";
+    ViewBag.error = Context.Response.StatusCode.ToString();
+    switch(ViewBag.error)
+    {
+        case "404":
+            ViewBag.error1 = "This url is not present in side the Project";
+            break;
+        case "200":
+            ViewBag.error1 = "This url is not present in side the Project";
+            break;
+        case "500":
+            ViewBag.error1 = "This url is not present in side the Project";
+            break;
+    }
+}
+
+<h1 class="text-danger">@ViewBag.error.</h1>
+<h2 class="text-danger">@ViewBag.error1.</h2>
+
+<h3>Development Mode</h3>
+<p>
+    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
+</p>
+<p>
+    <strong>Development environment should not be enabled in deployed applications</strong>, as it can result in sensitive information from exceptions being displayed to end users. For local debugging, development environment can be enabled by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>, and restarting the application.
+</p>

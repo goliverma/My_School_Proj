@@ -1,0 +1,53 @@
+﻿@model StudentVM
+
+@{
+    ViewData["Title"] = "Student Edit Form";
+    ViewData["pageTitle"] = "Student Edit Form";
+}
+
+
+@if (Context.Session.GetString("userLoginName") != null)
+{
+    @await Html.PartialAsync("_StudentForm", Model)
+}
+else
+{
+    <a class="btn btn-primary" asp-action="Login" asp-controller="User">Login Please !</a>
+}
+
+<a class="btn btn-outline-primary" asp-controller="Student" asp-action="Index">Back to list</a>
+
+
+@section Scripts{
+    <script src="~/js/Validation.js"></script>
+    <script src="~/js/DropDown.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            debugger;
+            let uri = window.location.href;
+            var page = uri.substring(uri.lastIndexOf('/') + 1);
+            edit(page);
+        });
+        function edit(a) {
+            $.ajax({
+                url: '/Student/GetStudent',
+                type: 'get',
+                data: { stid: a },
+                async: false,
+                success: function (data) {
+                    debugger;
+                    $('#StudentId').val(data.studentId);
+                    $('#StudentName').val(data.studentName);
+                    $('#StudentRollNo').val(data.studentRollNo);
+                    $('#ClassId').val(data.classId);
+                    $('#cid').val(data.cid);
+                    BindState();
+                    $('#sid').val(data.sid);
+                    BindCity();
+                    $('#cityid').val(data.cityId);
+                    $('#StudentAddress').val(data.studentAddress)
+                }
+            });
+        }
+    </script>
+}

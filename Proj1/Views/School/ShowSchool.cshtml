@@ -1,0 +1,94 @@
+﻿@model School
+
+@{ 
+    ViewData["Title"] = "School Details";
+    ViewData["pageTitle"] = "School Details";
+}
+
+<div class="modal-header">
+    <div class="container">
+        <div class="text-center">
+            <label class="col-form-label"><b>@Model.SchoolName</b></label>
+        </div>
+    </div>
+</div>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                @if (Context.User.Claims.Any(x => x.Value == "Admin" || x.Value == "Teacher"))
+                {
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Student" asp-action="PostStudent">Student Form</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Student" asp-action="Index">Student List</a>
+                        </li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item mr-2">
+                            <p>This Section For Admin Only</p>
+                        </li>
+                    </ul>
+                }
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="d-md-flex justify-content-center">
+    <div class="col-md-12">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        Total Student List In A School 
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-dark" asp-controller="Operations" asp-action="StudentListBySchool">
+                            Report
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Total Student List In a Class
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-dark" asp-controller="Operations" asp-action="SchoolClass" asp-route-a="student">
+                            Report
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Student Result List In a School
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-dark" asp-controller="Operations" asp-action="ShowAllResult">
+                            Report
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Student Result List in a class
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-dark" asp-controller="Operations" asp-action="SchoolClass" asp-route-a="result">
+                            Report
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<a class="btn btn-danger" asp-controller="School" asp-action="Index">
+    Back to School List
+</a>

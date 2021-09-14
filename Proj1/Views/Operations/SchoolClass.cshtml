@@ -1,0 +1,110 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model List<Classes>
+@{
+    ViewData["Title"] = "Class List";
+    ViewData["pageTitle"] = "Class List";
+}
+
+@if (Context.Session.GetString("userLoginName") != null)
+{
+    <div class="d-md-flex justify-content-center">
+        <div class="col-md-8">
+            <input type="hidden" id="pageValueId" value="@Context.Session.GetString("pageValue").ToString()" />
+            <table class="table" id="classList">
+                <thead>
+                    <tr>
+                        <th>
+                            class Id
+                        </th>
+                        <th>
+                            class Name
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @*@foreach (var st in Model)
+                {
+                    <tr>
+                        <td>
+                            @st.ClassId
+                        </td>
+                        <td>
+                            @st.ClassName
+                        </td>
+                        <td>
+
+                            @if (Context.Session.GetString("pageValue") == "student")
+                            {
+                                <a class="btn btn-outline-info" asp-action="StudentListByClassId" asp-controller="Operations"
+                                   asp-route-id="@st.ClassId">
+                                    View
+                                </a>
+                            }
+                            else if (Context.Session.GetString("pageValue") == "result")
+                            {
+                                <a class="btn btn-outline-info" asp-action="StudentResultByClassId" asp-controller="Operations"
+                                   asp-route-id="@st.ClassId">
+                                    View
+                                </a>
+                            }
+                        </td>
+                    </tr>
+                }*@
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <a class="btn btn-danger" asp-controller="School" asp-action="ShowSchool">Back to previous menu</a>
+
+    @section Scripts {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                loadList()
+            });
+            let val = $('#pageValueId').val();
+            function loadList() {
+                $.ajax({
+                    url: 'getClass',
+                    type: 'get',
+                    data: {},
+                    success: function (Data) {
+                        onSuccess(Data);
+                    },
+                    error: function () {
+                        alert('Data Error');
+                    }
+                });
+            }
+            function onSuccess(Data) {
+                $('#classList').DataTable({
+                    destroy: true,
+                    data: Data,
+                    columns: [
+                        { "data": "classId" },
+                        { "data": "className" },
+                        {
+                            "data": "classId",
+                            "render": function (classId) {
+                                let val = $('#pageValueId').val();
+                                debugger;
+                                if (val == "student")
+                                    return '<a class="btn btn-outline-primary" href="/Operations/StudentListByClassId/' + classId + '">View</a>';
+                                if (val == "result")
+                                    return '<a class="btn btn-outline-primary" href="/Operations/StudentResultByClassId/' + classId + '">View</a>';
+                            }
+                        }
+                    ]
+                });
+            }
+
+        </script>
+    }
+}
+else
+{
+    <a class="btn btn-primary" asp-action="Login" asp-controller="User">Login Please !</a>
+}
+

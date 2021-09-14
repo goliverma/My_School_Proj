@@ -1,0 +1,21 @@
+﻿@model StudentVM
+
+@{
+    ViewData["Title"] = "Student Form";
+    ViewData["pageTitle"] = "Student Form";
+}
+
+@if (Context.Session.GetString("userLoginName") != null)
+{
+    @await Html.PartialAsync("_StudentForm", Model)
+}
+else
+{
+    <a class="btn btn-primary" asp-action="Login" asp-controller="User">Login Please !</a>
+}
+
+
+@section Scripts{
+    <script src="~/js/Validation.js"></script>
+    <script src="~/js/DropDown.js"></script>
+}

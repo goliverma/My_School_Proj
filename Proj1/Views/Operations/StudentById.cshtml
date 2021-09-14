@@ -1,0 +1,73 @@
+﻿
+@model StudentVM
+
+@{
+    ViewData["Title"] = "Student Details";
+    ViewData["pageTitle"] = "Student Details";
+}
+@if (Context.Session.GetString("userLoginName") != null)
+{
+    <div class="justify-content-center col-md-12 d-md-flex">
+        <table class="table-hover">
+            <thead>
+                <tr class="text-center bg-light">
+                    <th colspan="2">Student</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Student Id
+                    </td>
+                    <td>
+                        @Model.StudentId
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Student Name
+                    </td>
+                    <td>
+                        @Model.StudentName
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Student Roll No.
+                    </td>
+                    <td>
+                        @Model.StudentRollNo
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Student Result in (%) &nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        @Model.Percentage
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Class
+                    </td>
+                    <td>
+                        @Model.ClassName
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Student Address
+                    </td>
+                    <td>
+                        @Model.StudentAddress
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <a class="btn btn-primary" asp-action="Login" asp-controller="User">Login Please !</a>
+}

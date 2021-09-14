@@ -1,0 +1,101 @@
+﻿@model List<School>
+
+@{
+    ViewData["Title"] = "School List";
+    ViewData["pageTitle"] = "Schools List";
+}
+
+@if (Context.Session.GetString("userLoginName") != null)
+{
+    <div class="d-md-flex justify-content-center">
+        <div class="col-md-8">
+            <table class="" id="schoolList">
+                <thead>
+                    <tr>
+                        <th>
+                            School Id
+                        </th>
+                        <th>
+                            School Name
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Address
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @*@foreach (var st in Model)
+                    {
+                        <tr>
+                            <td>
+                                @st.SchoolId
+                            </td>
+                            <td>
+                                @st.SchoolName
+                            </td>
+                            <td>
+                                @st.SchoolEmail
+                            </td>
+                            <td>
+                                @st.SchoolAddress
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-info" asp-action="ShowSchool" asp-controller="School" asp-route-id="@st.SchoolId">
+                                    View
+                                </a>
+                            </td>
+                        </tr>
+                    }*@
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @section Scripts{ 
+        <script type="text/javascript">
+            $(document).ready(function () {
+                loadList();
+            });
+            function loadList() {
+                $.ajax({
+                    url: 'getSchool',
+                    type: 'get',
+                    data: {},
+                    success: function (Data) {
+                        debugger;
+                        onSuccess(Data);
+                    },
+                    error: function () {
+                        alert('Data Error');
+                    }
+                });
+            }
+            function onSuccess(Data) {
+                $('#schoolList').DataTable({
+                    destroy: true,
+                    data: Data,
+                    columns: [
+                        { "data": "schoolId" },
+                        { "data": "schoolName" },
+                        { "data": "schoolEmail" },
+                        { "data": "schoolAddress" },
+                        {
+                            "data": "schoolId",
+                            "render": function (schoolId) {
+                                return '<a class="btn btn-outline-secondary" href="/School/ShowSchool/' + schoolId + '">View</a>';
+                            }
+                        }
+                    ]
+                });
+            }
+        </script>
+    }
+}
+else
+{
+    <a class="btn btn-primary" asp-action="Login" asp-controller="User">Login Please !</a>
+}

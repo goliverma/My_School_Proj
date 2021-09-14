@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DataPath": "Data Source=BUIDTP-195\\SQLEXPRESS;Initial Catalog=demo;Persist Security Info=True;User ID=dbuser;Password=dbuser"
+  }
+}
