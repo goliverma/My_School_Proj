@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Proj1\\Models\\Models.csproj": {}
+    "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\Models\\Models.csproj": {}
   },
   "projects": {
-    "D:\\Proj1\\Models\\Models.csproj": {
+    "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proj1\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "D:\\Proj1\\Models\\Models.csproj",
+        "projectPath": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\gauravverma\\.nuget\\packages\\",
-        "outputPath": "D:\\Proj1\\Models\\obj\\",
+        "outputPath": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

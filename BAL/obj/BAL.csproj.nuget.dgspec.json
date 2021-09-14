@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Proj1\\BAL\\BAL.csproj": {}
+    "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\BAL\\BAL.csproj": {}
   },
   "projects": {
-    "D:\\Proj1\\BAL\\BAL.csproj": {
+    "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\BAL\\BAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proj1\\BAL\\BAL.csproj",
+        "projectUniqueName": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\BAL\\BAL.csproj",
         "projectName": "BAL",
-        "projectPath": "D:\\Proj1\\BAL\\BAL.csproj",
+        "projectPath": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\BAL\\BAL.csproj",
         "packagesPath": "C:\\Users\\gauravverma\\.nuget\\packages\\",
-        "outputPath": "D:\\Proj1\\BAL\\obj\\",
+        "outputPath": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\BAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Proj1\\Models\\Models.csproj": {
-                "projectPath": "D:\\Proj1\\Models\\Models.csproj"
+              "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\Models\\Models.csproj"
               }
             }
           }
@@ -80,14 +80,14 @@
         }
       }
     },
-    "D:\\Proj1\\Models\\Models.csproj": {
+    "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proj1\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "D:\\Proj1\\Models\\Models.csproj",
+        "projectPath": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\gauravverma\\.nuget\\packages\\",
-        "outputPath": "D:\\Proj1\\Models\\obj\\",
+        "outputPath": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
