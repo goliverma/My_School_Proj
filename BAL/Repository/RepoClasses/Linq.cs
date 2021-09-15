@@ -377,7 +377,7 @@ namespace BAL.Repository.RepoClasses
                     StudentRollNo = (long)dt.Rows[i]["StudentRollNo"],
                     StudentAddress = (string)dt.Rows[i]["StudentAddress"],
                     Id = (int)dt.Rows[i]["Id"],
-                    ResultId = (int)dt.Rows[i]["ResultId"],
+                    ResultId = (dt.Rows[i]["ResultId"].ToString() != "" ? (int)dt.Rows[i]["ResultId"] : (int)0),
                     Cid = (int)dt.Rows[i]["Cid"],
                     Sid = (int)dt.Rows[i]["Sid"],
                     CityId = (int)dt.Rows[i]["CityId"],
