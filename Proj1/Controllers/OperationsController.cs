@@ -77,8 +77,7 @@ namespace Proj1.Controllers
             //        }
             //}
             #endregion
-            throw new Exception();
-            //return View();
+            return View();
         }
         [HttpGet]
         public JsonResult getstudentListBySchool()
