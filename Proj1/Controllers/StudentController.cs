@@ -98,7 +98,11 @@ namespace Proj1.Controllers
         public IActionResult ShowStudentById(int id)
         {
             var data = context1.StudentById(id);
-            return PartialView("_ShowStudent",data);
+            if(data != null)
+            {
+                return PartialView("_ShowStudent", data);
+            }
+            return Ok("nullData");
         }
         [HttpGet]
         public JsonResult GetStudent(string stid)

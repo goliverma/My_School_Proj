@@ -37,7 +37,6 @@ function BindState() {
         success: function (Data) {
             $("#sid").empty();
             $("#sid").append($('<option></option>').html("---Select---").val(0));
-            debugger;
             for (let i = 0; i < Data.length; i++) {
                 $("#sid").append($('<option></option>').html(Data[i].sName).val(Data[i].sid));
             }
@@ -54,7 +53,6 @@ function BindCity() {
         data: { Stateid: $("#sid").val() },
         async: false,
         success: function (Data) {
-            debugger;
             $("#cityid").empty();
             $("#cityid").append($('<option></option>').html("---Select---").val(0));
             for (let i = 0; i < Data.length; i++) {

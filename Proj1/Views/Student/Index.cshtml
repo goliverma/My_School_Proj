@@ -107,9 +107,10 @@
                     type: 'get',
                     data: { id: sid },
                     success: function (Data) {
-                        debugger;
-                        $('#exampleModalCenter .modal-body').html(Data);
-                        $('#exampleModalCenter').modal('show');
+                        if (Data != "nullData") {
+                            $('#exampleModalCenter .modal-body').html(Data);
+                            $('#exampleModalCenter').modal('show');
+                        }
                     },
                     error: function () {
                         alert('some thing went wrong');
