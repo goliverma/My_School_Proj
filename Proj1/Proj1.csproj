@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\TXT\Doc_Reports\**" />
+    <Content Remove="wwwroot\TXT\Doc_Reports\**" />
+    <EmbeddedResource Remove="wwwroot\TXT\Doc_Reports\**" />
+    <None Remove="wwwroot\TXT\Doc_Reports\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Aspose.PDF" Version="21.9.0" />
     <PackageReference Include="Aspose.Words" Version="21.9.0" />
     <PackageReference Include="bootstrap" Version="5.1.0" />
@@ -21,8 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\OutPut\" />
+    <Folder Include="Models\Template\" />
     <Folder Include="wwwroot\TXT\DemoLogs\" />
-    <Folder Include="wwwroot\TXT\Doc_Reports\" />
   </ItemGroup>
 
   <ItemGroup>

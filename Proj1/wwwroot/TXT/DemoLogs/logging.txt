@@ -1,0 +1,5 @@
+2021-09-22 15:12:12.2104|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-22 15:12:12.2412|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-22 15:12:12.2412|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-22 15:13:02.3502|WARN|Proj1.Controllers.ErrorController|Sorry, The resource you request could not found 
+ foo/bar/
