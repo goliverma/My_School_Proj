@@ -7,7 +7,8 @@
 @if (Context.Session.GetString("userLoginName") != null)
 {
     <div class="d-md-flex justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
+            <div class="col-md-3 text-md-start"><button type="button" onclick="exportToDoc()" class="btn btn-outline-secondary"> Export in Document</button></div>
             <table class="" id="studentList">
                 <thead>
                     <tr>
@@ -65,6 +66,19 @@
             $(document).ready(function () {
                 loadList();
             });
+            function exportToDoc() {
+                $.ajax({
+                    url: 'HtmlToPDF',
+                    type: 'get',
+                    data: {},
+                    success: function (Data) {
+                        alert(Data);
+                    },
+                    error: function () {
+                        alert("Some thing wrong");
+                    }
+                });
+            }
             function loadList() {
                 $.ajax({
                     url: 'getStudents',

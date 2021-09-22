@@ -185,9 +185,17 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Aspose.PDF": {
+              "target": "Package",
+              "version": "[21.9.0, )"
+            },
+            "Aspose.Words": {
+              "target": "Package",
+              "version": "[21.9.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[5.0.10, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

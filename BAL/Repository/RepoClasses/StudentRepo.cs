@@ -10,7 +10,7 @@ namespace BAL.Repository.RepoClasses
 {
     public class StudentRepo : IStudentRepo
     {
-        SqlConnection con;
+        public readonly SqlConnection con;
         DataTable dt;
         SqlCommand cmd;
         public StudentRepo()
@@ -21,18 +21,20 @@ namespace BAL.Repository.RepoClasses
         public List<Classes> Classes()
         {
             dt = new DataTable();
-            List<Classes> cl = new List<Classes>();
+            List<Classes> cl = new();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_ClassList";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_ClassList",
+                CommandType = CommandType.StoredProcedure
+            };
             SqlDataReader dr = cmd.ExecuteReader();
             dt.Load(dr);
             con.Close();
             for(int i=0; i < dt.Rows.Count; i++)
             {
-                Classes c = new Classes
+                Classes c = new()
                 {
                     ClassId = (int)dt.Rows[i]["ClassId"],
                     ClassName = (string)dt.Rows[i]["ClassName"]
@@ -46,10 +48,12 @@ namespace BAL.Repository.RepoClasses
         {
             dt = new DataTable();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_DeleteStudent";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_DeleteStudent",
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@sid", sid);
             if(cmd.ExecuteNonQuery()>0)
             {
@@ -63,15 +67,17 @@ namespace BAL.Repository.RepoClasses
         {
             dt = new DataTable();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_edit";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_edit",
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@id", sid);
             SqlDataReader dr = cmd.ExecuteReader();
             dt.Load(dr);
             con.Close();
-            StudentVM s = new StudentVM
+            StudentVM s = new()
             {
                 StudentId = (int)dt.Rows[0]["StudentId"],
                 StudentName = (string)dt.Rows[0]["StudentName"],
@@ -87,20 +93,22 @@ namespace BAL.Repository.RepoClasses
 
         public List<City> GetCity(int sid)
         {
-            List<City> cl = new List<City>();
+            List<City> cl = new();
             dt = new DataTable();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_getcitybyId";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_getcitybyId",
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@sid", sid);
             SqlDataReader dr = cmd.ExecuteReader();
             dt.Load(dr);
             con.Close();
             for(int i=0; i < dt.Rows.Count; i++)
             {
-                City c = new City
+                City c = new()
                 {
                     CityId = (int)dt.Rows[i]["CityId"],
                     CityName = (string)dt.Rows[i]["CityName"],
@@ -113,19 +121,21 @@ namespace BAL.Repository.RepoClasses
 
         public List<Country> GetCountry()
         {
-            List<Country> cl = new List<Country>();
+            List<Country> cl = new();
             dt = new DataTable();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_Country";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_Country",
+                CommandType = CommandType.StoredProcedure
+            };
             SqlDataReader dr = cmd.ExecuteReader();
             dt.Load(dr);
             con.Close();
             for(int i=0; i<dt.Rows.Count; i++)
             {
-                Country c = new Country
+                Country c = new()
                 {
                     Cid = (int)dt.Rows[i]["Cid"],
                     CName = (string)dt.Rows[i]["CName"]
@@ -137,20 +147,22 @@ namespace BAL.Repository.RepoClasses
 
         public List<State> GetState(int cid)
         {
-            List<State> sl = new List<State>();
+            List<State> sl = new();
             dt = new DataTable();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_State";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_State",
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@id", cid);
             SqlDataReader dr = cmd.ExecuteReader();
             dt.Load(dr);
             con.Close();
             for(int i=0; i < dt.Rows.Count; i++)
             {
-                State s = new State
+                State s = new()
                 {
                     Sid = (int)dt.Rows[i]["Sid"],
                     SName = (string)dt.Rows[i]["SName"],
@@ -166,10 +178,12 @@ namespace BAL.Repository.RepoClasses
             var r = relation(st.SchoolId, st.ClassId);
             st.Id = r.Id;
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_InsertStudent";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_InsertStudent",
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@Name", st.StudentName);
             cmd.Parameters.AddWithValue("@Address", st.StudentAddress);
             cmd.Parameters.AddWithValue("@RollNo", st.StudentRollNo);
@@ -189,16 +203,18 @@ namespace BAL.Repository.RepoClasses
         {
             dt = new DataTable();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_Relation";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_Relation",
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@SchoolId", schoolid);
             cmd.Parameters.AddWithValue("@ClassId", classid);
             SqlDataReader dr = cmd.ExecuteReader();
             dt.Load(dr);
             con.Close();
-            Relations r = new Relations
+            Relations r = new()
             {
                 Id = (int)dt.Rows[0]["Id"],
                 SchoolId = (int)dt.Rows[0]["SchoolId"],
@@ -210,12 +226,14 @@ namespace BAL.Repository.RepoClasses
         public List<StudentVM> resultByClassId(int schoolid, int classid)
         {
             dt = new DataTable();
-            List<StudentVM> st = new List<StudentVM>();
+            List<StudentVM> st = new();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_StudentResultClassId";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_StudentResultClassId",
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@classId", classid);
             cmd.Parameters.AddWithValue("@schoolId", schoolid);
             SqlDataReader dr = cmd.ExecuteReader();
@@ -223,7 +241,7 @@ namespace BAL.Repository.RepoClasses
             con.Close();
             for(int i = 0; i < dt.Rows.Count; i++)
             {
-                StudentVM s = new StudentVM
+                StudentVM s = new()
                 {
                     StudentId = (int)dt.Rows[i]["StudentId"],
                     StudentName = (string)dt.Rows[i]["StudentName"],
@@ -239,19 +257,21 @@ namespace BAL.Repository.RepoClasses
         public List<StudentVM> ResultBySchool(int schoolid)
         {
             dt = new DataTable();
-            List<StudentVM> st = new List<StudentVM>();
+            List<StudentVM> st = new();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_StudentResultschoolId";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_StudentResultschoolId",
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@schoolId", schoolid);
             SqlDataReader dr = cmd.ExecuteReader();
             dt.Load(dr);
             con.Close();
             for(int i = 0; i < dt.Rows.Count; i++)
             {
-                StudentVM s = new StudentVM
+                StudentVM s = new()
                 {
                     StudentId = (int)dt.Rows[i]["StudentId"],
                     StudentName = (string)dt.Rows[i]["StudentName"],
@@ -281,15 +301,17 @@ namespace BAL.Repository.RepoClasses
         {
             dt = new DataTable();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_SchoolById";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_SchoolById",
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@id", id);
             SqlDataReader dr = cmd.ExecuteReader();
             dt.Load(dr);
             con.Close();
-            School st = new School
+            School st = new()
             {
                 SchoolId = (int)dt.Rows[0]["SchoolId"],
                 SchoolName = (string)dt.Rows[0]["SchoolName"],
@@ -301,19 +323,21 @@ namespace BAL.Repository.RepoClasses
 
         public List<School> Schools()
         {
-            List<School> st = new List<School>();
+            List<School> st = new();
             dt = new DataTable();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_SchoolList";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_SchoolList",
+                CommandType = CommandType.StoredProcedure
+            };
             SqlDataReader dr = cmd.ExecuteReader();
             dt.Load(dr);
             con.Close();
             for(int i=0; i < dt.Rows.Count; i++)
             {
-                School s = new School
+                School s = new()
                 {
                     SchoolId = (int)dt.Rows[i]["SchoolId"],
                     SchoolName = (string)dt.Rows[i]["SchoolName"],
@@ -328,12 +352,14 @@ namespace BAL.Repository.RepoClasses
         public List<StudentVM> StudentByClassId(int schoolid, int classid)
         {
             dt = new DataTable();
-            List<StudentVM> st = new List<StudentVM>();
+            List<StudentVM> st = new();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_StudentByClassId";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_StudentByClassId",
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@classId", classid);
             cmd.Parameters.AddWithValue("@schoolId", schoolid);
             SqlDataReader dr = cmd.ExecuteReader();
@@ -341,7 +367,7 @@ namespace BAL.Repository.RepoClasses
             con.Close();
             for(int i = 0; i < dt.Rows.Count; i++)
             {
-                StudentVM s = new StudentVM
+                StudentVM s = new()
                 {
                     StudentId = (int)dt.Rows[i]["StudentId"],
                     StudentName = (string)dt.Rows[i]["StudentName"],
@@ -357,15 +383,17 @@ namespace BAL.Repository.RepoClasses
         {
             dt = new DataTable();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_StudentById";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_StudentById",
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@sid", sid);
             SqlDataReader dr = cmd.ExecuteReader();
             dt.Load(dr);
             con.Close();
-            StudentVM s = new StudentVM
+            StudentVM s = new()
             {
                 StudentId = (int)dt.Rows[0]["StudentId"],
                 StudentName = (string)dt.Rows[0]["StudentName"],
@@ -379,20 +407,22 @@ namespace BAL.Repository.RepoClasses
 
         public List<StudentVM> StudentBySchool(int schoolid)
         {
-            List<StudentVM> st = new List<StudentVM>();
+            List<StudentVM> st = new();
             dt = new DataTable();
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_StudentBySchool";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_StudentBySchool",
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@schoolId", schoolid);
             SqlDataReader dr = cmd.ExecuteReader();
             dt.Load(dr);
             con.Close();
             for(var i=0; i < dt.Rows.Count; i++)
             {
-                StudentVM s = new StudentVM
+                StudentVM s = new()
                 {
                     StudentId = (int)dt.Rows[i]["StudentId"],
                     StudentName = (string)dt.Rows[i]["StudentName"],
@@ -430,10 +460,12 @@ namespace BAL.Repository.RepoClasses
         {
             var data = relation(st.SchoolId, st.ClassId);
             con.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "sp_UpdateStudent";
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = "sp_UpdateStudent",
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@id", st.StudentId);
             cmd.Parameters.AddWithValue("@name", st.StudentName);
             cmd.Parameters.AddWithValue("@address", st.StudentAddress);

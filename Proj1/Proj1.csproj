@@ -6,8 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspose.PDF" Version="21.9.0" />
+    <PackageReference Include="Aspose.Words" Version="21.9.0" />
     <PackageReference Include="bootstrap" Version="5.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.10" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.14.0" />
@@ -19,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\TXT\" />
     <Folder Include="wwwroot\TXT\DemoLogs\" />
+    <Folder Include="wwwroot\TXT\Doc_Reports\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,6 @@
-﻿using BAL.Repository;
+﻿using Aspose.Words;
+using Aspose.Words.Tables;
+using BAL.Repository;
 using BAL.Repository.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -7,6 +9,7 @@ using Models.Models;
 using Models.VM;
 using Proj1.Models.Filter;
 using System;
+using System.Drawing;
 
 namespace Proj1.Controllers
 {
@@ -123,6 +126,86 @@ namespace Proj1.Controllers
                 return Json("Student Remove success");
             }
             return Json("something went wrong");
+        }
+        [HttpGet]
+        public JsonResult HtmlToPDF()
+        {
+            var data = context1.StudentBySchool(schoolid());
+            Document doc = new();
+            DocumentBuilder docbuild = new(doc);
+            Table tbl = docbuild.StartTable();
+            //docbuild.InsertCell();
+            //docbuild.Write("Student Data Table");
+            //one cell ka formate set krna k liya
+            //tbl.PreferredWidth = PreferredWidth.FromPercent(150);
+            //docbuild.CellFormat.PreferredWidth = PreferredWidth.FromPercent(50);
+            //docbuild.CellFormat.Borders.LineWidth = 1.5;
+            //docbuild.CellFormat.Shading.BackgroundPatternColor = Color.Pink;
+            //docbuild.ParagraphFormat.Alignment = ParagraphAlignment.Center;
+            //docbuild.EndRow();
+            //Header Design
+            docbuild.InsertCell();
+            docbuild.Write("Student Id");
+            tbl.PreferredWidth = PreferredWidth.FromPercent(150);
+            docbuild.CellFormat.PreferredWidth = PreferredWidth.FromPercent(10);
+            docbuild.CellFormat.Borders.LineWidth = 1.5;
+            docbuild.CellFormat.Shading.BackgroundPatternColor = Color.Pink;
+            docbuild.ParagraphFormat.Alignment = ParagraphAlignment.Center;
+
+            docbuild.InsertCell();
+            docbuild.Write("Student Name");
+            docbuild.CellFormat.PreferredWidth = PreferredWidth.FromPercent(10);
+
+            docbuild.InsertCell();
+            docbuild.Write("Roll No");
+            docbuild.CellFormat.PreferredWidth = PreferredWidth.FromPercent(10);
+
+            docbuild.InsertCell();
+            docbuild.Write("Class");
+            docbuild.CellFormat.PreferredWidth = PreferredWidth.FromPercent(10);
+
+            docbuild.InsertCell();
+            docbuild.Write("Address");
+            docbuild.CellFormat.PreferredWidth = PreferredWidth.FromPercent(10);
+
+            docbuild.EndRow();
+            //Header Insert in Doc
+            foreach(Cell cell in tbl.Rows[0].Cells)
+            {
+                Paragraph p = cell.FirstParagraph;
+                p.Runs[0].Font.Bold = true;
+                p.Runs[0].Font.Color = Color.White;
+            }
+            //this proces to insert tbody
+            Cell currentcell;
+            foreach (var item in data)
+            {
+                currentcell = docbuild.InsertCell();
+                docbuild.Write(item.StudentId.ToString());
+                docbuild.ParagraphFormat.Alignment = ParagraphAlignment.Left;
+                currentcell.CellFormat.VerticalMerge = CellMerge.First;
+                docbuild.CellFormat.Borders.LineWidth = 1;
+                docbuild.CellFormat.Shading.BackgroundPatternColor = Color.White;
+
+                currentcell = docbuild.InsertCell();
+                docbuild.Write(item.StudentName);
+
+                currentcell = docbuild.InsertCell();
+                docbuild.Write(item.StudentRollNo.ToString());
+
+                currentcell = docbuild.InsertCell();
+                docbuild.Write(item.ClassName);
+
+                currentcell = docbuild.InsertCell();
+                docbuild.Write(item.StudentAddress);
+
+                docbuild.EndRow();
+
+            }
+            //file save path
+            doc.Save($"C:\\Users\\gauravverma\\Downloads\\reports.doc");
+
+            return Json("Export");
         }
     }
 }
