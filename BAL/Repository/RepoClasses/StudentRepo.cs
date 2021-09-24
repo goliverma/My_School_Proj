@@ -1,4 +1,5 @@
 ﻿using BAL.Repository.Interfaces;
+using DAL.DataProvider;
 using Models.Models;
 using Models.VM;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace BAL.Repository.RepoClasses
         public readonly SqlConnection con;
         DataTable dt;
         SqlCommand cmd;
+        IDataProvider context;
+
         public StudentRepo()
         {
             con = new SqlConnection(Connnection.Connection());
@@ -20,24 +23,26 @@ namespace BAL.Repository.RepoClasses
 
         public List<Classes> Classes()
         {
-            dt = new DataTable();
+            context = new DataProvider();
+            //dt = new DataTable();
             List<Classes> cl = new();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_ClassList",
-                CommandType = CommandType.StoredProcedure
-            };
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            con.Close();
-            for(int i=0; i < dt.Rows.Count; i++)
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_ClassList",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //dt.Load(dr);
+            //con.Close();
+            var data = context.ConnectDataBase("sp_ClassList");
+            for(int i=0; i < data.Rows.Count; i++)
             {
                 Classes c = new()
                 {
-                    ClassId = (int)dt.Rows[i]["ClassId"],
-                    ClassName = (string)dt.Rows[i]["ClassName"]
+                    ClassId = (int)data.Rows[i]["ClassId"],
+                    ClassName = (string)data.Rows[i]["ClassName"]
                 };
                 cl.Add(c);
             }
@@ -46,21 +51,22 @@ namespace BAL.Repository.RepoClasses
 
         public bool DeleteStu(int sid)
         {
-            dt = new DataTable();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_DeleteStudent",
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@sid", sid);
-            if(cmd.ExecuteNonQuery()>0)
-            {
-                return true;
-            }
-            con.Close();
-            return false;
+            bool rdata = false;
+            //dt = new DataTable();
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_DeleteStudent",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@sid", sid);
+            //if(cmd.ExecuteNonQuery()>0)
+            //{
+            //    return true;
+            //}
+            //con.Close();
+            return rdata;
         }
 
         public StudentVM EditStudentById(int sid)

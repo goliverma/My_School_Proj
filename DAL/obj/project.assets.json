@@ -230,31 +230,6 @@
             "rid": "win"
           }
         }
-      },
-      "DAL/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
-          "Microsoft.Extensions.Configuration.Json": "5.0.0",
-          "System.Data.SqlClient": "4.8.2"
-        },
-        "compile": {
-          "bin/placeholder/DAL.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DAL.dll": {}
-        }
-      },
-      "Models/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/Models.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Models.dll": {}
-        }
       }
     }
   },
@@ -735,24 +710,12 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "DAL/1.0.0": {
-      "type": "project",
-      "path": "../DAL/DAL.csproj",
-      "msbuildProject": "../DAL/DAL.csproj"
-    },
-    "Models/1.0.0": {
-      "type": "project",
-      "path": "../Models/Models.csproj",
-      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "DAL >= 1.0.0",
       "Microsoft.Extensions.Configuration.Abstractions >= 5.0.0",
       "Microsoft.Extensions.Configuration.Json >= 5.0.0",
-      "Models >= 1.0.0",
       "System.Data.SqlClient >= 4.8.2"
     ]
   },
@@ -763,11 +726,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\BAL\\BAL.csproj",
-      "projectName": "BAL",
-      "projectPath": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\BAL\\BAL.csproj",
+      "projectUniqueName": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\DAL\\DAL.csproj",
+      "projectName": "DAL",
+      "projectPath": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\gauravverma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\BAL\\obj\\",
+      "outputPath": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -787,14 +750,7 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {
-            "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\DAL\\DAL.csproj"
-            },
-            "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\gauravverma\\Desktop\\My_School_Proj\\Models\\Models.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

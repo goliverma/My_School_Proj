@@ -69,3 +69,12 @@
 2021-09-23 12:05:34.3971|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
 2021-09-23 12:05:34.4242|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
 2021-09-23 12:05:34.4349|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 14:58:48.3089|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 14:58:48.3364|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 14:58:48.3511|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 17:53:23.6247|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 17:53:23.6530|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 17:53:23.6530|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 17:54:46.2533|WARN|Proj1.Models.Filter.CustomAuthenticationFilter|Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary
+2021-09-23 17:55:20.9276|WARN|Proj1.Models.Filter.CustomAuthenticationFilter|Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary
+2021-09-23 17:55:39.9827|WARN|Proj1.Models.Filter.CustomAuthenticationFilter|Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary
