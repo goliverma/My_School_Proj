@@ -82,7 +82,7 @@ namespace Proj1.Controllers
         [HttpGet]
         public JsonResult getstudentListBySchool()
         {
-            return Json(context1.StudentBySchool(schoolid()));
+            return Json(context.StudentBySchool(schoolid()));
         }
         [HttpGet]
         public IActionResult SchoolClass(string a)
@@ -105,7 +105,7 @@ namespace Proj1.Controllers
         [HttpGet]
         public JsonResult getStudentListByClassId(string id)
         {
-            return Json(context1.StudentByClassId(schoolid(), Convert.ToInt32(id)));
+            return Json(context.StudentByClassId(schoolid(), Convert.ToInt32(id)));
         }
         [HttpGet]
         public JsonResult getClass()
@@ -121,7 +121,7 @@ namespace Proj1.Controllers
         [HttpGet]
         public JsonResult getShowAllResult()
         {
-            return Json(context1.ResultBySchool(schoolid()));
+            return Json(context.ResultBySchool(schoolid()));
         }
         public IActionResult StudentResultByClassId(int id)
         {
@@ -130,12 +130,12 @@ namespace Proj1.Controllers
         [HttpGet]
         public JsonResult getStudentResultByClassId(int id)
         {
-            return Json(context1.resultByClassId(schoolid(), id));
+            return Json(context.resultByClassId(schoolid(), id));
         }
         [HttpGet]
         public IActionResult StudentById(int sid)
         {
-            return View(context1.StudentById(sid));
+            return View(context.StudentById(sid));
         }
         private int schoolid()
         {

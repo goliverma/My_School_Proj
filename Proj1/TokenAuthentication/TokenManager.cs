@@ -17,7 +17,7 @@ namespace Proj1.TokenAuthentication
             var token = new Token
             {
                 Value = Guid.NewGuid().ToString(),
-                ExpireDate = DateTime.Now.AddSeconds(30)
+                ExpireDate = DateTime.Now.AddSeconds(300)
             };
             tokenlist.Add(token);
             return token;

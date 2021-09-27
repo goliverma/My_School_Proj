@@ -264,3 +264,5 @@ C:\Users\gauravverma\Desktop\My_School_Proj\Proj1_api\obj\Debug\net5.0\Proj1_api
 C:\Users\gauravverma\Desktop\My_School_Proj\Proj1_api\obj\Debug\net5.0\ref\Proj1_api.dll
 C:\Users\gauravverma\Desktop\My_School_Proj\Proj1_api\obj\Debug\net5.0\Proj1_api.pdb
 C:\Users\gauravverma\Desktop\My_School_Proj\Proj1_api\obj\Debug\net5.0\Proj1_api.genruntimeconfig.cache
+C:\Users\gauravverma\Desktop\My_School_Proj\Proj1_api\bin\Debug\net5.0\DAL.dll
+C:\Users\gauravverma\Desktop\My_School_Proj\Proj1_api\bin\Debug\net5.0\DAL.pdb

@@ -87,22 +87,22 @@ namespace Proj1.Controllers
         [HttpGet]
         public JsonResult GetCountry()
         {
-            return Json(context1.GetCountry());
+            return Json(context.GetCountry());
         }
         [HttpGet]
         public JsonResult GetState(int sid)
         {
-            return Json(context1.GetState(sid));
+            return Json(context.GetState(sid));
         }
         [HttpGet]
         public JsonResult GetCity(int Stateid)
         {
-            return Json(context1.GetCity(Stateid));
+            return Json(context.GetCity(Stateid));
         }
         [HttpGet]
         public IActionResult ShowStudentById(int id)
         {
-            var data = context1.StudentById(id);
+            var data = context.StudentById(id);
             if(data != null)
             {
                 return PartialView("_ShowStudent", data);
@@ -117,7 +117,7 @@ namespace Proj1.Controllers
         [HttpGet]
         public JsonResult getStudents()
         {
-            var data = context1.StudentBySchool(schoolid());
+            var data = context.StudentBySchool(schoolid());
             return Json(data);
         }
         [HttpPost]
@@ -132,7 +132,7 @@ namespace Proj1.Controllers
         [HttpGet]
         public JsonResult HtmlToPDF()
         {
-            var data = context1.StudentBySchool(schoolid());
+            var data = context.StudentBySchool(schoolid());
             #region without template
             //Document doc = new();
             //DocumentBuilder docbuild = new(doc);

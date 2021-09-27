@@ -30,3 +30,5 @@ C:\Users\gauravverma\Desktop\My_School_Proj\BAL\obj\Debug\net5.0\BAL.csproj.Copy
 C:\Users\gauravverma\Desktop\My_School_Proj\BAL\obj\Debug\net5.0\BAL.dll
 C:\Users\gauravverma\Desktop\My_School_Proj\BAL\obj\Debug\net5.0\ref\BAL.dll
 C:\Users\gauravverma\Desktop\My_School_Proj\BAL\obj\Debug\net5.0\BAL.pdb
+C:\Users\gauravverma\Desktop\My_School_Proj\BAL\bin\Debug\net5.0\DAL.dll
+C:\Users\gauravverma\Desktop\My_School_Proj\BAL\bin\Debug\net5.0\DAL.pdb

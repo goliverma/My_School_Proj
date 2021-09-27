@@ -3,6 +3,7 @@ using DAL.DataProvider;
 using Models.Models;
 using Models.VM;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,14 +12,15 @@ namespace BAL.Repository.RepoClasses
 {
     public class StudentRepo : IStudentRepo
     {
-        public readonly SqlConnection con;
-        DataTable dt;
-        SqlCommand cmd;
+        //public readonly SqlConnection con;
+        //DataTable dt;
+        //SqlCommand cmd;
         IDataProvider context;
+        Collection<SqlParameter> param;
 
         public StudentRepo()
         {
-            con = new SqlConnection(Connnection.Connection());
+            //con = new SqlConnection(Connnection.Connection());
         }
 
         public List<Classes> Classes()
@@ -37,7 +39,7 @@ namespace BAL.Repository.RepoClasses
             //dt.Load(dr);
             //con.Close();
             var data = context.ConnectDataBase("sp_ClassList");
-            for(int i=0; i < data.Rows.Count; i++)
+            for (int i = 0; i < data.Rows.Count; i++)
             {
                 Classes c = new()
                 {
@@ -51,6 +53,7 @@ namespace BAL.Repository.RepoClasses
 
         public bool DeleteStu(int sid)
         {
+            context = new DataProvider();
             bool rdata = false;
             //dt = new DataTable();
             //con.Open();
@@ -66,23 +69,33 @@ namespace BAL.Repository.RepoClasses
             //    return true;
             //}
             //con.Close();
+            param = new();
+            param.Add(new SqlParameter("@sid", sid));
+            if (context.SaveDataEntity(param, "sp_DeleteStudent"))
+            {
+                rdata = true;
+            }
             return rdata;
         }
 
         public StudentVM EditStudentById(int sid)
         {
-            dt = new DataTable();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_edit",
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@id", sid);
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            con.Close();
+            context = new DataProvider();
+            //dt = new DataTable();
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_edit",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@id", sid);
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //dt.Load(dr);
+            //con.Close();
+            param = new();
+            param.Add(new SqlParameter("@id", sid));
+            var dt = context.ConnectDataBaseWithParam(param, "sp_edit");
             StudentVM s = new()
             {
                 StudentId = (int)dt.Rows[0]["StudentId"],
@@ -91,8 +104,8 @@ namespace BAL.Repository.RepoClasses
                 StudentRollNo = (long)dt.Rows[0]["StudentRollNo"],
                 ClassId = (int)dt.Rows[0]["ClassId"],
                 Sid = (int)dt.Rows[0]["Sid"],
-                Cid= (int)dt.Rows[0]["Cid"],
-                CityId= (int)dt.Rows[0]["CityId"]
+                Cid = (int)dt.Rows[0]["Cid"],
+                CityId = (int)dt.Rows[0]["CityId"]
             };
             return s;
         }
@@ -100,19 +113,23 @@ namespace BAL.Repository.RepoClasses
         public List<City> GetCity(int sid)
         {
             List<City> cl = new();
-            dt = new DataTable();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_getcitybyId",
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@sid", sid);
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            con.Close();
-            for(int i=0; i < dt.Rows.Count; i++)
+            //dt = new DataTable();
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_getcitybyId",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@sid", sid);
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //dt.Load(dr);
+            //con.Close();
+            context = new DataProvider();
+            param = new();
+            param.Add(new SqlParameter("@sid", sid));
+            var dt = context.ConnectDataBaseWithParam(param, "sp_getcitybyId");
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 City c = new()
                 {
@@ -128,18 +145,20 @@ namespace BAL.Repository.RepoClasses
         public List<Country> GetCountry()
         {
             List<Country> cl = new();
-            dt = new DataTable();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_Country",
-                CommandType = CommandType.StoredProcedure
-            };
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            con.Close();
-            for(int i=0; i<dt.Rows.Count; i++)
+            //dt = new DataTable();
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_Country",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //dt.Load(dr);
+            //con.Close();
+            context = new DataProvider();
+            var dt = context.ConnectDataBase("sp_Country");
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 Country c = new()
                 {
@@ -154,19 +173,23 @@ namespace BAL.Repository.RepoClasses
         public List<State> GetState(int cid)
         {
             List<State> sl = new();
-            dt = new DataTable();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_State",
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@id", cid);
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            con.Close();
-            for(int i=0; i < dt.Rows.Count; i++)
+            //dt = new DataTable();
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_State",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@id", cid);
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //dt.Load(dr);
+            //con.Close();
+            context = new DataProvider();
+            param = new();
+            param.Add(new SqlParameter("@id", cid));
+            var dt = context.ConnectDataBaseWithParam(param, "sp_State");
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 State s = new()
                 {
@@ -181,45 +204,64 @@ namespace BAL.Repository.RepoClasses
 
         public bool InsertStudent(StudentVM st)
         {
+            bool result = false;
             var r = relation(st.SchoolId, st.ClassId);
             st.Id = r.Id;
-            con.Open();
-            cmd = new SqlCommand
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_InsertStudent",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@Name", st.StudentName);
+            //cmd.Parameters.AddWithValue("@Address", st.StudentAddress);
+            //cmd.Parameters.AddWithValue("@RollNo", st.StudentRollNo);
+            //cmd.Parameters.AddWithValue("@realtionId", st.Id);
+            //cmd.Parameters.AddWithValue("@cid", st.Cid);
+            //cmd.Parameters.AddWithValue("@sid", st.Sid);
+            //cmd.Parameters.AddWithValue("@cityid", st.CityId);
+            //if (cmd.ExecuteNonQuery() > 0)
+            //{
+            //    return true;
+            //}
+            //con.Close();
+            context = new DataProvider();
+            param = new();
+            param.Add(new SqlParameter("@Name", st.StudentName));
+            param.Add(new SqlParameter("@Address", st.StudentAddress));
+            param.Add(new SqlParameter("@RollNo", st.StudentRollNo));
+            param.Add(new SqlParameter("@realtionId", st.Id));
+            param.Add(new SqlParameter("@cid", st.Cid));
+            param.Add(new SqlParameter("@sid", st.Sid));
+            param.Add(new SqlParameter("@cityid", st.CityId));
+            if (context.SaveDataEntity(param, "sp_InsertStudent"))
             {
-                Connection = con,
-                CommandText = "sp_InsertStudent",
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@Name", st.StudentName);
-            cmd.Parameters.AddWithValue("@Address", st.StudentAddress);
-            cmd.Parameters.AddWithValue("@RollNo", st.StudentRollNo);
-            cmd.Parameters.AddWithValue("@realtionId", st.Id);
-            cmd.Parameters.AddWithValue("@cid", st.Cid);
-            cmd.Parameters.AddWithValue("@sid", st.Sid);
-            cmd.Parameters.AddWithValue("@cityid", st.CityId);
-            if (cmd.ExecuteNonQuery() > 0)
-            {
-                return true;
+                result = true;
             }
-            con.Close();
-            return false;
+            return result;
         }
 
         public Relations relation(int schoolid, int classid)
         {
-            dt = new DataTable();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_Relation",
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@SchoolId", schoolid);
-            cmd.Parameters.AddWithValue("@ClassId", classid);
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            con.Close();
+            //dt = new DataTable();
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_Relation",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@SchoolId", schoolid);
+            //cmd.Parameters.AddWithValue("@ClassId", classid);
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //dt.Load(dr);
+            //con.Close();
+            context = new DataProvider();
+            param = new();
+            param.Add(new SqlParameter("@SchoolId", schoolid));
+            param.Add(new SqlParameter("@ClassId", classid));
+            var dt = context.ConnectDataBaseWithParam(param, "sp_Relation");
             Relations r = new()
             {
                 Id = (int)dt.Rows[0]["Id"],
@@ -231,21 +273,26 @@ namespace BAL.Repository.RepoClasses
 
         public List<StudentVM> resultByClassId(int schoolid, int classid)
         {
-            dt = new DataTable();
+            //dt = new DataTable();
             List<StudentVM> st = new();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_StudentResultClassId",
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@classId", classid);
-            cmd.Parameters.AddWithValue("@schoolId", schoolid);
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            con.Close();
-            for(int i = 0; i < dt.Rows.Count; i++)
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_StudentResultClassId",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@classId", classid);
+            //cmd.Parameters.AddWithValue("@schoolId", schoolid);
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //dt.Load(dr);
+            //con.Close();
+            context = new DataProvider();
+            param = new();
+            param.Add(new SqlParameter("@classId", classid));
+            param.Add(new SqlParameter("@schoolId", schoolid));
+            var dt = context.ConnectDataBaseWithParam(param, "sp_StudentResultClassId");
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 StudentVM s = new()
                 {
@@ -262,20 +309,24 @@ namespace BAL.Repository.RepoClasses
 
         public List<StudentVM> ResultBySchool(int schoolid)
         {
-            dt = new DataTable();
+            //dt = new DataTable();
             List<StudentVM> st = new();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_StudentResultschoolId",
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@schoolId", schoolid);
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            con.Close();
-            for(int i = 0; i < dt.Rows.Count; i++)
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_StudentResultschoolId",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@schoolId", schoolid);
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //dt.Load(dr);
+            //con.Close();
+            context = new DataProvider();
+            param = new();
+            param.Add(new SqlParameter("@schoolId", schoolid));
+            var dt = context.ConnectDataBaseWithParam(param, "sp_StudentResultschoolId");
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 StudentVM s = new()
                 {
@@ -305,18 +356,22 @@ namespace BAL.Repository.RepoClasses
 
         public School School(int id)
         {
-            dt = new DataTable();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_SchoolById",
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@id", id);
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            con.Close();
+            //dt = new DataTable();
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_SchoolById",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@id", id);
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //dt.Load(dr);
+            //con.Close();
+            context = new DataProvider();
+            param = new();
+            param.Add(new SqlParameter("@id", id));
+            var dt = context.ConnectDataBaseWithParam(param, "sp_SchoolById");
             School st = new()
             {
                 SchoolId = (int)dt.Rows[0]["SchoolId"],
@@ -330,25 +385,27 @@ namespace BAL.Repository.RepoClasses
         public List<School> Schools()
         {
             List<School> st = new();
-            dt = new DataTable();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_SchoolList",
-                CommandType = CommandType.StoredProcedure
-            };
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            con.Close();
-            for(int i=0; i < dt.Rows.Count; i++)
+            //dt = new DataTable();
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_SchoolList",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //dt.Load(dr);
+            //con.Close();
+            context = new DataProvider();
+            var data = context.ConnectDataBase("sp_SchoolList");
+            for (int i = 0; i < data.Rows.Count; i++)
             {
                 School s = new()
                 {
-                    SchoolId = (int)dt.Rows[i]["SchoolId"],
-                    SchoolName = (string)dt.Rows[i]["SchoolName"],
-                    SchoolEmail = (string)dt.Rows[i]["SchoolEmail"],
-                    SchoolAddress = (string)dt.Rows[i]["SchoolAddress"]
+                    SchoolId = (int)data.Rows[i]["SchoolId"],
+                    SchoolName = (string)data.Rows[i]["SchoolName"],
+                    SchoolEmail = (string)data.Rows[i]["SchoolEmail"],
+                    SchoolAddress = (string)data.Rows[i]["SchoolAddress"]
                 };
                 st.Add(s);
             }
@@ -357,21 +414,26 @@ namespace BAL.Repository.RepoClasses
 
         public List<StudentVM> StudentByClassId(int schoolid, int classid)
         {
-            dt = new DataTable();
+            //dt = new DataTable();
             List<StudentVM> st = new();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_StudentByClassId",
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@classId", classid);
-            cmd.Parameters.AddWithValue("@schoolId", schoolid);
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            con.Close();
-            for(int i = 0; i < dt.Rows.Count; i++)
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_StudentByClassId",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@classId", classid);
+            //cmd.Parameters.AddWithValue("@schoolId", schoolid);
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //dt.Load(dr);
+            //con.Close();
+            context = new DataProvider();
+            param = new();
+            param.Add(new SqlParameter("@classId", classid));
+            param.Add(new SqlParameter("@schoolId", schoolid));
+            var dt = context.ConnectDataBaseWithParam(param, "sp_StudentByClassId");
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 StudentVM s = new()
                 {
@@ -387,26 +449,30 @@ namespace BAL.Repository.RepoClasses
 
         public StudentVM StudentById(int sid)
         {
-            dt = new DataTable();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_StudentById",
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@sid", sid);
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            con.Close();
+            //dt = new DataTable();
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_StudentById",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@sid", sid);
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //dt.Load(dr);
+            //con.Close();
+            context = new DataProvider();
+            param = new();
+            param.Add(new SqlParameter("@sid", sid));
+            var dt = context.ConnectDataBaseWithParam(param, "sp_StudentById");
             StudentVM s = new()
             {
                 StudentId = (int)dt.Rows[0]["StudentId"],
                 StudentName = (string)dt.Rows[0]["StudentName"],
                 ClassName = (string)dt.Rows[0]["ClassName"],
                 StudentRollNo = (long)dt.Rows[0]["StudentRollNo"],
-                StudentAddress= (string)dt.Rows[0]["StudentAddress"],
-                Percentage = (int)dt.Rows[0]["StudentResult"]
+                StudentAddress = (string)dt.Rows[0]["StudentAddress"],
+                Percentage = dt.Rows[0]["StudentResult"].ToString() != "" ? (int)dt.Rows[0]["StudentResult"] : 0
             };
             return s;
         }
@@ -414,19 +480,23 @@ namespace BAL.Repository.RepoClasses
         public List<StudentVM> StudentBySchool(int schoolid)
         {
             List<StudentVM> st = new();
-            dt = new DataTable();
-            con.Open();
-            cmd = new SqlCommand
-            {
-                Connection = con,
-                CommandText = "sp_StudentBySchool",
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@schoolId", schoolid);
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
-            con.Close();
-            for(var i=0; i < dt.Rows.Count; i++)
+            //dt = new DataTable();
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_StudentBySchool",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@schoolId", schoolid);
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //dt.Load(dr);
+            //con.Close();
+            context = new DataProvider();
+            param = new();
+            param.Add(new SqlParameter("@schoolId", schoolid));
+            var dt = context.ConnectDataBaseWithParam(param, "sp_StudentBySchool");
+            for (var i = 0; i < dt.Rows.Count; i++)
             {
                 StudentVM s = new()
                 {
@@ -464,27 +534,43 @@ namespace BAL.Repository.RepoClasses
 
         public bool UpdateStudent(StudentVM st)
         {
+            bool result = false;
             var data = relation(st.SchoolId, st.ClassId);
-            con.Open();
-            cmd = new SqlCommand
+            st.Id = data.Id;
+            //con.Open();
+            //cmd = new SqlCommand
+            //{
+            //    Connection = con,
+            //    CommandText = "sp_UpdateStudent",
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@id", st.StudentId);
+            //cmd.Parameters.AddWithValue("@name", st.StudentName);
+            //cmd.Parameters.AddWithValue("@address", st.StudentAddress);
+            //cmd.Parameters.AddWithValue("@rollNo", st.StudentRollNo);
+            //cmd.Parameters.AddWithValue("@relationid", data.Id);
+            //cmd.Parameters.AddWithValue("@cid", st.Cid);
+            //cmd.Parameters.AddWithValue("@sid", st.Sid);
+            //cmd.Parameters.AddWithValue("@cityid", st.CityId);
+            //if (cmd.ExecuteNonQuery()>0)
+            //{
+            //    return true;
+            //}
+            context = new DataProvider();
+            param = new();
+            param.Add(new SqlParameter("@id", st.StudentId));
+            param.Add(new SqlParameter("@name", st.StudentName));
+            param.Add(new SqlParameter("@address", st.StudentAddress));
+            param.Add(new SqlParameter("@rollNo", st.StudentRollNo));
+            param.Add(new SqlParameter("@relationid", st.Id));
+            param.Add(new SqlParameter("@cid", st.Cid));
+            param.Add(new SqlParameter("@sid", st.Sid));
+            param.Add(new SqlParameter("@cityid", st.CityId));
+            if (context.SaveDataEntity(param, "sp_UpdateStudent"))
             {
-                Connection = con,
-                CommandText = "sp_UpdateStudent",
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@id", st.StudentId);
-            cmd.Parameters.AddWithValue("@name", st.StudentName);
-            cmd.Parameters.AddWithValue("@address", st.StudentAddress);
-            cmd.Parameters.AddWithValue("@rollNo", st.StudentRollNo);
-            cmd.Parameters.AddWithValue("@relationid", data.Id);
-            cmd.Parameters.AddWithValue("@cid", st.Cid);
-            cmd.Parameters.AddWithValue("@sid", st.Sid);
-            cmd.Parameters.AddWithValue("@cityid", st.CityId);
-            if (cmd.ExecuteNonQuery()>0)
-            {
-                return true;
+                result = true;
             }
-            return false;
+            return result;
         }
     }
 }

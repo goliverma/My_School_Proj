@@ -1,0 +1,12 @@
+C:\Users\gauravverma\Desktop\My_School_Proj\DAL\obj\Debug\net5.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gauravverma\Desktop\My_School_Proj\DAL\obj\Debug\net5.0\DAL.AssemblyInfoInputs.cache
+C:\Users\gauravverma\Desktop\My_School_Proj\DAL\obj\Debug\net5.0\DAL.AssemblyInfo.cs
+C:\Users\gauravverma\Desktop\My_School_Proj\DAL\obj\Debug\net5.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\gauravverma\Desktop\My_School_Proj\DAL\bin\Debug\net5.0\connection.json
+C:\Users\gauravverma\Desktop\My_School_Proj\DAL\bin\Debug\net5.0\DAL.deps.json
+C:\Users\gauravverma\Desktop\My_School_Proj\DAL\bin\Debug\net5.0\DAL.dll
+C:\Users\gauravverma\Desktop\My_School_Proj\DAL\bin\Debug\net5.0\ref\DAL.dll
+C:\Users\gauravverma\Desktop\My_School_Proj\DAL\bin\Debug\net5.0\DAL.pdb
+C:\Users\gauravverma\Desktop\My_School_Proj\DAL\obj\Debug\net5.0\DAL.dll
+C:\Users\gauravverma\Desktop\My_School_Proj\DAL\obj\Debug\net5.0\ref\DAL.dll
+C:\Users\gauravverma\Desktop\My_School_Proj\DAL\obj\Debug\net5.0\DAL.pdb

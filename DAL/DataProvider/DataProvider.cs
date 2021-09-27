@@ -13,25 +13,40 @@ namespace DAL.DataProvider
     {
         private SqlConnection con;
         private DataTable dt;
-        private SqlCommand cmd;;
+        private SqlCommand cmd;
         public DataProvider()
         {
             con = new SqlConnection(Connnection.Connection());
         }
-        public DataTable ConnectDataBase(Collection<SqlParameter> param, string Procuder)
+
+        public DataTable ConnectDataBase(string Procuder)
         {
             dt = new DataTable();
             cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = Procuder;
-            if(param != null)
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            dt.Load(dr);
+            con.Close();
+            return dt;
+        }
+
+        public DataTable ConnectDataBaseWithParam(Collection<SqlParameter> param, string Procuder)
+        {
+            dt = new DataTable();
+            cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = Procuder;
+            if (param != null)
             {
                 foreach (SqlParameter p in param)
                 {
                     if (p != null)
                     {
-                        if(p.Value == null)
+                        if (p.Value == null)
                         {
                             p.Value = DBNull.Value;
                         }
@@ -57,7 +72,7 @@ namespace DAL.DataProvider
             {
                 foreach (SqlParameter p in param)
                 {
-                    if(p == null)
+                    if(p != null)
                     {
                         if(p.Value == null)
                         {
@@ -71,6 +86,7 @@ namespace DAL.DataProvider
                 {
                     return true;
                 }
+                con.Close();
             }
             return false;
         }
