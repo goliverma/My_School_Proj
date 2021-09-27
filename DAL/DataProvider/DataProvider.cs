@@ -18,16 +18,21 @@ namespace DAL.DataProvider
         {
             con = new SqlConnection(Connnection.Connection());
         }
-
+        public SqlCommand StartUp(string proc)
+        {
+            return cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandType = CommandType.StoredProcedure,
+                CommandText = proc
+            };
+        }
         public DataTable ConnectDataBase(string Procuder)
         {
             dt = new DataTable();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = Procuder;
+            var command = StartUp(Procuder);
             con.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
+            SqlDataReader dr = command.ExecuteReader();
             dt.Load(dr);
             con.Close();
             return dt;
@@ -36,10 +41,7 @@ namespace DAL.DataProvider
         public DataTable ConnectDataBaseWithParam(Collection<SqlParameter> param, string Procuder)
         {
             dt = new DataTable();
-            cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = Procuder;
+            var command = StartUp(Procuder);
             if (param != null)
             {
                 foreach (SqlParameter p in param)
@@ -50,11 +52,11 @@ namespace DAL.DataProvider
                         {
                             p.Value = DBNull.Value;
                         }
-                        cmd.Parameters.Add(p);
+                        command.Parameters.Add(p);
                     }
                 }
                 con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
+                SqlDataReader dr = command.ExecuteReader();
                 dt.Load(dr);
                 con.Close();
                 return dt;
@@ -65,9 +67,7 @@ namespace DAL.DataProvider
         public bool SaveDataEntity(Collection<SqlParameter> param, string Procuder)
         {
             cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = Procuder;
+            var command = StartUp(Procuder);
             if(param != null)
             {
                 foreach (SqlParameter p in param)
@@ -78,11 +78,11 @@ namespace DAL.DataProvider
                         {
                             p.Value = DBNull.Value;
                         }
-                        cmd.Parameters.Add(p);
+                        command.Parameters.Add(p);
                     }
                 }
                 con.Open();
-                if(cmd.ExecuteNonQuery() > 0)
+                if(command.ExecuteNonQuery() > 0)
                 {
                     return true;
                 }

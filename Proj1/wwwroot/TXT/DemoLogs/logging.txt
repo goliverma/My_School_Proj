@@ -142,3 +142,9 @@
 2021-09-27 12:18:23.4831|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
 2021-09-27 12:18:23.5067|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
 2021-09-27 12:18:23.5161|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 12:36:52.4504|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 12:36:52.4761|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 12:36:52.4825|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 12:42:08.1022|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 12:42:08.1319|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 12:42:08.1383|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1

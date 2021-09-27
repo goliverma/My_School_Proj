@@ -1,23 +1,21 @@
 ﻿using BAL.Repository.Interfaces;
 using DAL.DataProvider;
 using Models.Models;
-using System;
 using System.Collections.ObjectModel;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace BAL.Repository.RepoClasses
 {
     public class UserRepo : IUserRepo
     {
-        SqlConnection con;
-        DataTable dt;
-        SqlCommand cmd;
+        //SqlConnection con;
+        //DataTable dt;
+        //SqlCommand cmd;
         Collection<SqlParameter> param;
         IDataProvider context;
         public UserRepo()
         {
-            con = new SqlConnection(Connnection.Connection());
+            //con = new SqlConnection(Connnection.Connection());
         }
         public User Login(User u)
         {
@@ -37,7 +35,7 @@ namespace BAL.Repository.RepoClasses
             param.Add(new SqlParameter("@username", u.UserName));
             param.Add(new SqlParameter("@userpass", u.UserPass));
             var data = context.ConnectDataBaseWithParam(param, "sp_Login");
-            if(data.Rows.Count > 0)
+            if (data.Rows.Count > 0)
             {
                 User U = new User
                 {
