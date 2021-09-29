@@ -28,9 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\OutPut\" />
     <Folder Include="Models\Template\" />
     <Folder Include="wwwroot\TXT\DemoLogs\" />
+    <Folder Include="wwwroot\TXT\OutPut\" />
   </ItemGroup>
 
   <ItemGroup>

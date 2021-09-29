@@ -10,3 +10,4 @@ C:\Users\gauravverma\Desktop\My_School_Proj\DAL\bin\Debug\net5.0\DAL.pdb
 C:\Users\gauravverma\Desktop\My_School_Proj\DAL\obj\Debug\net5.0\DAL.dll
 C:\Users\gauravverma\Desktop\My_School_Proj\DAL\obj\Debug\net5.0\ref\DAL.dll
 C:\Users\gauravverma\Desktop\My_School_Proj\DAL\obj\Debug\net5.0\DAL.pdb
+C:\Users\gauravverma\Desktop\My_School_Proj\DAL\obj\Debug\net5.0\DAL.csproj.AssemblyReference.cache

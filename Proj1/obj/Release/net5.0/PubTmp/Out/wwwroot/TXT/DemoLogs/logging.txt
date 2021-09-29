@@ -1,0 +1,153 @@
+2021-09-22 15:12:12.2104|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-22 15:12:12.2412|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-22 15:12:12.2412|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-22 15:13:02.3502|WARN|Proj1.Controllers.ErrorController|Sorry, The resource you request could not found 
+ foo/bar/
+2021-09-22 15:27:22.1276|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-22 15:27:22.1634|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-22 15:27:22.1713|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-22 18:54:03.0414|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-22 18:54:03.0692|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-22 18:54:03.0748|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 09:13:04.6029|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 09:13:04.6296|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 09:13:04.6296|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 09:16:25.0703|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 09:16:25.0997|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 09:16:25.1055|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 09:40:57.6795|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 09:40:57.7076|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 09:40:57.7076|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 09:42:12.0345|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 09:42:12.0596|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 09:42:12.0596|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 09:47:06.6781|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 09:47:06.7032|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 09:47:06.7032|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 10:01:05.4319|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 10:01:05.4572|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 10:01:05.4572|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 10:06:54.2934|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 10:06:54.3209|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 10:06:54.3264|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 10:10:08.9968|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 10:10:09.0250|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 10:10:09.0306|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 10:27:15.4908|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 10:27:15.5212|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 10:27:15.5212|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 10:54:15.7642|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 10:54:15.8174|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 10:54:15.8254|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 10:54:31.1675|ERROR|Proj1.Models.Filter.CustomExceptionFilter|Proj1.Controllers.StudentController.HtmlToPDF (Proj1) 
+ The process cannot access the file 'C:\Users\gauravverma\Desktop\My_School_Proj\Proj1\Models\Template\StudentTemplate.docx' because it is being used by another process. 
+ 
+2021-09-23 11:12:29.9187|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 11:12:29.9445|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 11:12:29.9504|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 11:14:25.9480|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 11:14:25.9762|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 11:14:25.9821|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 11:38:52.1283|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 11:38:52.1536|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 11:38:52.1536|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 11:40:08.2920|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 11:40:08.3182|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 11:40:08.3182|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 11:41:46.7654|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 11:41:46.7910|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 11:41:46.7991|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 11:43:28.9769|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 11:43:29.0015|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 11:43:29.0015|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 11:51:42.4131|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 11:51:42.4394|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 11:51:42.4394|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 12:00:30.7516|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 12:00:30.7775|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 12:00:30.7775|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 12:05:34.3971|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 12:05:34.4242|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 12:05:34.4349|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 14:58:48.3089|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 14:58:48.3364|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 14:58:48.3511|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 17:53:23.6247|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-23 17:53:23.6530|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-23 17:53:23.6530|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-23 17:54:46.2533|WARN|Proj1.Models.Filter.CustomAuthenticationFilter|Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary
+2021-09-23 17:55:20.9276|WARN|Proj1.Models.Filter.CustomAuthenticationFilter|Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary
+2021-09-23 17:55:39.9827|WARN|Proj1.Models.Filter.CustomAuthenticationFilter|Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary
+2021-09-27 10:15:08.9662|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 10:15:09.0251|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 10:15:09.0393|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 10:18:59.2574|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 10:18:59.2839|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 10:18:59.2839|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 10:19:36.1376|ERROR|Proj1.Models.Filter.CustomExceptionFilter|Proj1.Controllers.SchoolController.getSchool (Proj1) 
+ Object reference not set to an instance of an object. 
+ 
+2021-09-27 10:20:49.1485|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 10:20:49.1760|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 10:20:49.1760|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 10:21:57.5894|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 10:21:57.6152|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 10:21:57.6224|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 11:31:24.7962|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 11:31:24.8240|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 11:31:24.8240|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 11:33:59.1983|WARN|Proj1.Models.Filter.CustomAuthenticationFilter|Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary
+2021-09-27 11:35:49.4454|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 11:35:49.4710|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 11:35:49.4710|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 11:36:25.8073|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 11:36:25.8349|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 11:36:25.8416|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 11:41:52.6130|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 11:41:52.6450|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 11:41:52.6527|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 11:43:28.7320|ERROR|Proj1.Models.Filter.CustomExceptionFilter|Proj1.Controllers.StudentController.PostStudent (Proj1) 
+ Procedure or function 'sp_InsertStudent' expects parameter '@Name', which was not supplied. 
+ 
+2021-09-27 11:44:38.8061|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 11:44:38.8303|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 11:44:38.8303|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 11:47:55.1151|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 11:47:55.1405|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 11:47:55.1405|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 11:52:49.3850|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 11:52:49.4111|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 11:52:49.4111|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 11:55:07.8786|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 11:55:07.9081|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 11:55:07.9081|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 12:01:30.6927|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 12:01:30.7182|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 12:01:30.7182|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 12:02:35.0856|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 12:02:35.1116|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 12:02:35.1116|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 12:03:59.0364|ERROR|Proj1.Models.Filter.CustomExceptionFilter|Proj1.Controllers.StudentController.ShowStudentById (Proj1) 
+ There is no row at position 0. 
+ 
+2021-09-27 12:05:30.9244|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 12:05:30.9490|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 12:05:30.9490|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 12:06:16.2924|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 12:06:16.3201|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 12:06:16.3267|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 12:07:34.7391|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 12:07:34.7655|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 12:07:34.7655|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 12:18:23.4831|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 12:18:23.5067|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 12:18:23.5161|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 12:36:52.4504|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 12:36:52.4761|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 12:36:52.4825|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 12:42:08.1022|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 12:42:08.1319|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 12:42:08.1383|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1
+2021-09-27 12:56:56.3306|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-09-27 12:56:56.3541|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-09-27 12:56:56.3607|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\gauravverma\Desktop\My_School_Proj\Proj1

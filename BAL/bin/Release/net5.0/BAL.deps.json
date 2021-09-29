@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "BAL/1.0.0": {
         "dependencies": {
+          "DAL": "1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
           "Microsoft.Extensions.Configuration.Json": "5.0.0",
           "Models": "1.0.0",
@@ -184,6 +185,16 @@
         }
       },
       "System.Security.Principal.Windows/4.7.0": {},
+      "DAL/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Configuration.Json": "5.0.0",
+          "System.Data.SqlClient": "4.8.2"
+        },
+        "runtime": {
+          "DAL.dll": {}
+        }
+      },
       "Models/1.0.0": {
         "runtime": {
           "Models.dll": {}
@@ -315,6 +326,11 @@
       "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
+    },
+    "DAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Models/1.0.0": {
       "type": "project",

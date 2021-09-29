@@ -213,7 +213,7 @@ namespace Proj1.Controllers
             List<StudentVM> students = new(data);
             ReportingEngine reporting = new();
             reporting.BuildReport(doc, students, "student");
-            doc.Save(@"C:\Users\gauravverma\Desktop\My_School_Proj\Proj1\Models\OutPut\Reports.docx");
+            doc.Save(@"C:\Users\gauravverma\Desktop\My_School_Proj\Proj1\wwwroot\TXT\OutPut\\Reports.docx");
             #endregion
             return Json("Export");
         }
